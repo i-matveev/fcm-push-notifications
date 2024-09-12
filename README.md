@@ -52,32 +52,29 @@ Before running the script, ensure you have the following:
    ```
 
 3. **Input details**:
-   - Enter the FCM topic (e.g., `all` or `ios`).
-   - Provide the title and message for the notification.
+   - **Platform**: Select whether the notification will be sent to iOS or Android.
+   - **Topic**: Enter the FCM topic.
+   - **Title and Message**: Provide the title and message for the notification. For the message, you can enter multiple lines, ending with “END” to signal the completion of input.
 
 4. **Example Input**:
    ```
+   Enter the platform (ios or android): ios
    Enter the topic (e.g., 'all' or 'ios'): ios
-   Enter the notification title: Dear Customers!
-   Enter the notification message: We wish you a great day and good vibes!
+   Enter the notification title: New products!
+   Enter the notification message (type 'END' on a new line to finish):
+   Good morning, dear customers!
+   We invite you to try new products from a new supplier!
+   END
    ```
 
-## Code Structure
+5. **Notification Delivery**:
 
-- **_get_access_token()**:
-  - This function retrieves a valid OAuth 2.0 access token using the service account JSON file, which is required to authenticate requests to FCM.
-
-- **send_push_notification(topic, title, message)**:
-  - This function sends a push notification to the specified topic using the FCM HTTP v1 API.
-
-- **Main section**:
-  - The script prompts the user to input the topic, notification title, and message body, then calls `send_push_notification()` to send the notification.
+   - For **iOS**, both data and notification payloads are used to ensure the message shows up in the notification shade and can be processed in the app.
+   - For **Android**, only the data payload is used, as Android processes both notifications and data differently.
 
 ## License
 
 This project is licensed under the MIT License.
-
----
 
 ### Notes
 - Make sure to use the correct service account.
