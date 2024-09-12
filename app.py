@@ -4,7 +4,7 @@ from google.oauth2 import service_account
 from google.auth.transport.requests import Request
 
 SCOPES = ['https://www.googleapis.com/auth/cloud-platform']
-SERVICE_ACCOUNT_FILE = 'refresh-afda8-firebase-adminsdk-yqut1-534f470cdc.json'  # Path to the JSON key
+SERVICE_ACCOUNT_FILE = 'path/to/you/key.json'  # Path to the JSON key
 
 def _get_access_token():
     """Retrieve a valid access token."""
@@ -82,7 +82,7 @@ if __name__ == "__main__":
     
     print("Enter the notification message (type 'END' on a new line to finish):")
     
-    # Сбор многострочного сообщения
+    # Collecting a multiline message
     lines = []
     while True:
         line = input()
@@ -90,6 +90,6 @@ if __name__ == "__main__":
             break
         lines.append(line)
     
-    message = "\n".join(lines)  # Собираем все строки в одно сообщение
+    message = "\n".join(lines)  # Collect all the strings into one message
     
     send_push_notification(platform, topic, title, message)
